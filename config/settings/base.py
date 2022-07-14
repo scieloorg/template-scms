@@ -76,6 +76,7 @@ WAGTAIL = [
     "wagtail.core",
     "wagtail.locales",
     "wagtail.api.v2",
+    "wagtail.contrib.styleguide",
     "modelcluster",
     "taggit",
 ]
@@ -103,6 +104,7 @@ THIRD_PARTY_APPS = [
     "wagtailcaptcha",
     "wagtailmenus",
     "rest_framework",
+    "core",
 ]
 
 LOCAL_APPS = [
