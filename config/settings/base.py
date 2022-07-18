@@ -76,6 +76,7 @@ WAGTAIL = [
     "wagtail.core",
     "wagtail.locales",
     "wagtail.api.v2",
+    "wagtail.contrib.settings",
     "modelcluster",
     "taggit",
 ]
@@ -107,6 +108,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "core.users",
+    "core_settings",
     # Your stuff: custom apps go here
 ]
 
@@ -167,7 +169,6 @@ MIDDLEWARE = [
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
-    # "wagtailmenus.context_processors.wagtailmenus",
 ]
 
 # STATIC
@@ -214,6 +215,8 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "core.users.context_processors.allauth_settings",
+                "wagtail.contrib.settings.context_processors.settings",
+                "wagtailmenus.context_processors.wagtailmenus",
             ],
         },
     }
