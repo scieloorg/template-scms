@@ -38,6 +38,9 @@ build_date: ## Show build date
 build:  ## Build app using $(compose)
 	@docker-compose -f $(compose) build
 
+build_no_cache:  ## Build app using $(compose)
+	@docker-compose -f $(compose) build --no-cache
+
 up:  ## Start app using $(compose)
 	@docker-compose -f $(compose) up -d
 
@@ -81,7 +84,7 @@ django_migrate: ## Run migrate from django container using $(compose)
 	@docker-compose -f $(compose) run --rm django python manage.py migrate
 
 django_makemessages: ## Run ./manage.py makemessages $(compose)
-	@docker-compose -f $(compose) run --rm django python manage.py makemessages
+	@docker-compose -f $(compose) run --rm django python manage.py makemessages --all
 
 django_compilemessages: ## Run ./manage.py compilemessages $(compose)
 	@docker-compose -f $(compose) run --rm django python manage.py compilemessages
