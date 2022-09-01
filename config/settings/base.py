@@ -105,13 +105,14 @@ THIRD_PARTY_APPS = [
     "wagtailcaptcha",
     "wagtailmenus",
     "rest_framework",
-    "core",
 ]
 
 LOCAL_APPS = [
     "core.users",
     "core_settings",
     # Your stuff: custom apps go here
+    "core",
+    "location",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -345,7 +346,6 @@ LANGUAGES = [
     ('en', "English"),
     ('es', "Spanish"),
     ('pt-BR', "Portuguese"),
-    ('it', "Italian"),
 ]
 
 WAGTAIL_I18N_ENABLED = True
@@ -354,7 +354,6 @@ WAGTAIL_CONTENT_LANGUAGES =  [
     ('en', "English"),
     ('es', "Spanish"),
     ('pt-BR', "Portuguese"),
-    ('it', "Italian")
 ]
 
 NOCAPTCHA = True
