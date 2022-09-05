@@ -1,7 +1,11 @@
+import os
+
 from django.db import models
 from django.utils.translation import gettext as _
 from core.models import CommonControlField
-from .forms import ThematicAreaForm
+from wagtail.documents.edit_handlers import DocumentChooserPanel
+
+from .forms import ThematicAreaForm, ThematicAreaFileForm
 from . import choices
 
 
@@ -52,5 +56,29 @@ class ThematicArea(CommonControlField):
 
         return the_area
 
-
     base_form_class = ThematicAreaForm
+
+
+class ThematicAreaFile(CommonControlField):
+    class Meta:
+        verbose_name_plural = _('Thematic Areas Upload')
+
+    attachment = models.ForeignKey(
+        'wagtaildocs.Document',
+        verbose_name=_("Attachment"),
+        null=True, blank=False,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    is_valid = models.BooleanField(_("Is valid?"), default=False, blank=True,
+                                   null=True)
+    line_count = models.IntegerField(_("Number of lines"), default=0,
+                                     blank=True, null=True)
+
+    def filename(self):
+        return os.path.basename(self.attachment.name)
+
+    panels = [
+        DocumentChooserPanel('attachment')
+    ]
+    base_form_class = ThematicAreaFileForm
