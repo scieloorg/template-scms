@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext as _
 from core.models import CommonControlField
-from usefulmodels.forms import ThematicAreaForm
+from .forms import ThematicAreaForm
 from . import choices
 
 
