@@ -4,4 +4,16 @@
 
 {% get_settings use_default_site=True %}
 
-{% block branding_welcome %}{% trans 'Welcome to the administrative area of ' %}{{ settings.core_settings.CustomSettings.name }}{% endblock %}
+{% block branding_welcome %}{% trans 'Welcome to the administrative area of ' %}
+
+    {% if settings.core_settings.CustomSettings.name %}
+
+        {{ settings.core_settings.CustomSettings.name }}
+
+    {% else %}
+
+        SciELO CMS
+
+    {% endif %}
+
+{% endblock %}
