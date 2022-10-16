@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext as _
 from core.models import CommonControlField
 from location.forms import (LocationForm, CityForm, CountryForm, StateForm)
+from . import choices
 
 
 class City(CommonControlField):
@@ -50,6 +51,7 @@ class State(CommonControlField):
 
     name = models.CharField(_("State name"), blank=True, null=True, max_length=255)
     acronym = models.CharField(_("State Acronym"), blank=True, null=True, max_length=255)
+    region = models.CharField(_("Region"), choices=choices.regions, max_length=255, null=True, blank=True)
 
     class Meta:
         verbose_name = _("State")
