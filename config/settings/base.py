@@ -105,14 +105,17 @@ THIRD_PARTY_APPS = [
     "wagtailcaptcha",
     "wagtailmenus",
     "rest_framework",
-    "core",
 ]
 
 LOCAL_APPS = [
     "core.users",
     "core_settings",
     # Your stuff: custom apps go here
-	"thematic_areas",
+    "core",
+    "location",
+    "institution",
+	  "journal",
+  	"thematic_areas",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -312,9 +315,17 @@ CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_TIME_LIMIT = 5 * 60
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#task-soft-time-limit
 # TODO: set to whatever value is adequate in your circumstances
-CELERY_TASK_SOFT_TIME_LIMIT = 60
+CELERY_TASK_SOFT_TIME_LIMIT = 36000
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#beat-scheduler
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+
+# Celery Results
+# ------------------------------------------------------------------------------
+# https: // django-celery-results.readthedocs.io/en/latest/getting_started.html
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_CACHE_BACKEND = 'django-cache'
+CELERY_RESULT_EXTENDED = True
+
 # django-allauth
 # ------------------------------------------------------------------------------
 ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
@@ -346,7 +357,6 @@ LANGUAGES = [
     ('en', "English"),
     ('es', "Spanish"),
     ('pt-BR', "Portuguese"),
-    ('it', "Italian"),
 ]
 
 WAGTAIL_I18N_ENABLED = True
@@ -355,7 +365,6 @@ WAGTAIL_CONTENT_LANGUAGES =  [
     ('en', "English"),
     ('es', "Spanish"),
     ('pt-BR', "Portuguese"),
-    ('it', "Italian")
 ]
 
 NOCAPTCHA = True
