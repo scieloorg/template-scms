@@ -6,7 +6,9 @@ class OfficialJournalForm(WagtailAdminModelForm):
     def save_all(self, user):
         journal = super().save(commit=False)
 
-        if self.instance.pk is None:
+        if self.instance.pk is not None:
+            journal.updated_by = user
+        else:
             journal.creator = user
 
         self.save()
