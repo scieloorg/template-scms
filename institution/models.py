@@ -43,13 +43,13 @@ class Institution(CommonControlField, ClusterableModel):
 
     def __unicode__(self):
         return (
-            u'%s | %s | %s | %s | %s' %
+            u'%s | %s | %s | %s | %s | %s' %
             (self.name, self.acronym, self.level_1,
              self.level_2, self.level_3, self.location))
 
     def __str__(self):
         return (
-            u'%s | %s | %s | %s | %s' %
+            u'%s | %s | %s | %s | %s | %s' %
             (self.name, self.acronym, self.level_1,
              self.level_2, self.level_3, self.location))
 
