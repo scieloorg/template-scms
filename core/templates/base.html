@@ -55,20 +55,19 @@
 
       {# {% include 'include/top_bar.html' %} #}
 
-      {% include 'include/header.html' %}
+      {% comment %} {% include 'include/header.html' %} {% endcomment %}
 
       {% block content %}{% endblock content %}
 
     </div>
 
     {% block modal %}
-      {% include 'include/modal.html' %}
-      {% include 'include/modal_banner.html' %}
+      {% comment %} {% include 'include/modal.html' %} {% endcomment %}
     {% endblock modal %}
 
     {#% include 'include/alert.html' %#}
 
-    {% include 'include/footer.html' %}
+    {% comment %} {% include 'include/footer.html' %} {% endcomment %}
 
     <div id="gotoTop" class="icon-angle-up"></div>
 
