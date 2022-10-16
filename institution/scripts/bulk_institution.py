@@ -13,7 +13,7 @@ User = get_user_model()
 def run(*args):
     user_id = 1
 
-    # Delete all actions
+    # Delete all institutions
     models.Institution.objects.all().delete()
 
     # User
