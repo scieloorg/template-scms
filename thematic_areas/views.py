@@ -69,17 +69,15 @@ def import_file(request):
 
     try:
         with open(file_path, 'r') as csvfile:
-            data = csv.DictReader(csvfile)
+            data = csv.DictReader(csvfile, delimiter=";")
 
             for line, row in enumerate(data):
-                po = ThematicArea()
-                po.level0 = row['LEVEL0']
-                po.level0 = row['LEVEL1']
-                po.level0 = row['LEVEL2']
-                if row['Date']:
-                    po.date = datetime.strptime(row['Date'], '%d/%m/%Y')
-                po.creator = request.user
-                po.save()
+                ta = ThematicArea()
+                ta.level0 = row['ThematicAreaLevel0']
+                ta.level0 = row['ThematicAreaLevel1']
+                ta.level0 = row['ThematicAreaLevel2']
+                ta.creator = request.user
+                ta.save()
 
     except Exception as ex:
         messages.error(request, _("Import error: %s, Line: %s") % (ex, str(line + 2)))
