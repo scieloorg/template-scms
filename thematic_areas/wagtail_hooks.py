@@ -7,7 +7,7 @@ from wagtail.contrib.modeladmin.views import CreateView, EditView
 from wagtail.contrib.modeladmin.options import (ModelAdmin, modeladmin_register, ModelAdminGroup)
 
 from .models import ThematicArea, ThematicAreaFile
-from .button_helper import ThematicAreaHelper
+from .button_helpers import ThematicAreaHelper
 
 
 class ThematicAreaEditView(EditView):
