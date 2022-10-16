@@ -114,7 +114,8 @@ LOCAL_APPS = [
     "core",
     "location",
     "institution",
-	"journal",
+	  "journal",
+  	"thematic_areas",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
