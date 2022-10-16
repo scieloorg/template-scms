@@ -14,9 +14,6 @@ from core.search import views as search_views  # noqa isort:skip
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="home/home_page.html"), name="home"),
-    path(
-        "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
-    ),
     # Django Admin, use {% url "admin:index" %}
     path(settings.DJANGO_ADMIN_URL, admin.site.urls),
     # Wagtail Admin
