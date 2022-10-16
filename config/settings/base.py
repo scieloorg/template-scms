@@ -110,7 +110,6 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "core.users",
     "core_settings",
-    "django_celery_beat",
     # Your stuff: custom apps go here
     "core",
     "location",
