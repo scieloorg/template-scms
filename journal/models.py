@@ -2,14 +2,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from core.models import CommonControlField
-from .forms import OfficialJournalForm
 
-from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, PageChooserPanel
-from wagtail.core.models import Orderable
-from modelcluster.fields import ParentalKey
-from modelcluster.models import ClusterableModel
-from django import forms
-from wagtail.admin import widgets 
+from .forms import OfficialJournalForm
 
 
 class OfficialJournal(CommonControlField):
@@ -30,4 +24,3 @@ class OfficialJournal(CommonControlField):
     ISSNL = models.CharField(_('ISSNL'), max_length=9, null=True, blank=True)
 
     base_form_class = OfficialJournalForm
-
